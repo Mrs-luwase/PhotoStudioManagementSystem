@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<f:view>
+    <h1>Booking Confirmed</h1>
+    <p>The booking below has been saved successfully.</p>
+
+    <h:panelGrid columns="2">
+        <h:outputText value="Booking ID:"/>
+        <h:outputText value="#{bookingBean.booking.bookingId}"/>
+
+        <h:outputText value="Client Name:"/>
+        <h:outputText value="#{bookingBean.booking.clientName}"/>
+
+        <h:outputText value="Event Type:"/>
+        <h:outputText value="#{bookingBean.booking.eventType}"/>
+
+        <h:outputText value="Event Date:"/>
+        <h:outputText value="#{bookingBean.booking.eventDate}"/>
+
+        <h:outputText value="Status:"/>
+        <h:outputText value="#{bookingBean.booking.status}"/>
+    </h:panelGrid>
+
+    <h:form>
+        <h:commandButton value="Back to Booking List" action="bookingList?faces-redirect=true" style="margin-top:15px;"/>
+    </h:form>
+</f:view>
+</html>

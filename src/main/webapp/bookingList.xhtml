@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<f:view>
+    <h1>Booking List</h1>
+
+    <h:form>
+        <h:commandButton value="+ New Booking" action="#{bookingBean.prepareNew}"/>
+
+        <h:dataTable value="#{bookingBean.bookingList}" var="b" border="2" styleClass="data-table">
+            <h:column>
+                <f:facet name="header">Booking ID</f:facet>
+                #{b.bookingId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Client Name</f:facet>
+                #{b.clientName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Event Type</f:facet>
+                #{b.eventType}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Event Date</f:facet>
+                #{b.eventDate}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                #{b.status}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandLink value="Edit" action="#{bookingBean.prepareEdit(b.bookingId)}"/>
+                &#160;|&#160;
+                <h:commandLink value="Delete" action="#{bookingBean.deleteBooking(b.bookingId)}"
+                               onclick="return confirm('Delete this booking?');"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</f:view>
+</html>

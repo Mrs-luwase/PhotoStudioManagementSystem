@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<style type="text/css">
+    h1 { color: #2c3e50; }
+</style>
+<f:view>
+    <h1>Staff Member Details</h1>
+
+    <h:form>
+        <h:panelGrid columns="3">
+
+            <h:outputLabel value="Staff ID"/>
+            <h:inputText value="#{staffMemberBean.staff.staffId}" required="true"
+                         id="staffId" label="Staff ID" readonly="true">
+                <f:validateLength minimum="3" maximum="15"/>
+            </h:inputText>
+            <h:message for="staffId" style="color: red"/>
+
+            <h:outputLabel value="Full Name"/>
+            <h:inputText value="#{staffMemberBean.staff.fullName}" required="true"
+                         id="fullName" label="Full Name"
+                         validatorMessage="Full name must be between 2 and 60 characters.">
+                <f:validateLength minimum="2" maximum="60"/>
+            </h:inputText>
+            <h:message for="fullName" style="color: red"/>
+
+            <h:outputLabel value="Role"/>
+            <h:selectOneMenu value="#{staffMemberBean.staff.role}" required="true"
+                             id="role" label="Role">
+                <f:selectItem itemValue="Photographer" itemLabel="Photographer"/>
+                <f:selectItem itemValue="Editor" itemLabel="Editor"/>
+                <f:selectItem itemValue="Receptionist" itemLabel="Receptionist"/>
+                <f:selectItem itemValue="Manager" itemLabel="Manager"/>
+            </h:selectOneMenu>
+            <h:message for="role" style="color: red"/>
+
+            <h:outputLabel value="Phone Number"/>
+            <h:inputText value="#{staffMemberBean.staff.phoneNumber}" required="true"
+                         id="phoneNumber" label="Phone Number"
+                         validator="#{staffMemberBean.validatePhoneNumber}"/>
+            <h:message for="phoneNumber" style="color: red"/>
+
+            <h:commandButton value="Save" action="#{staffMemberBean.saveStaff}"
+                             rendered="#{empty staffMemberBean.staff.createdAt}"/>
+            <h:commandButton value="Update" action="#{staffMemberBean.updateStaff}"
+                             rendered="#{not empty staffMemberBean.staff.createdAt}"/>
+            <h:commandButton value="Cancel" action="staffList?faces-redirect=true"
+                             immediate="true" style="margin-left:8px; background-color:#6b7280;"/>
+
+        </h:panelGrid>
+    </h:form>
+</f:view>
+</html>
