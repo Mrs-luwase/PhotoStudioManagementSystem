@@ -26,6 +26,7 @@
                          id="clientName" label="Client Name"
                          validatorMessage="Client name must be between 2 and 60 characters.">
                 <f:validateLength minimum="2" maximum="60"/>
+                <f:validator validatorId="notBlankValidator"/>
             </h:inputText>
             <h:message for="clientName" style="color: red"/>
 
