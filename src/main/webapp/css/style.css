@@ -2,8 +2,9 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 30px 40px;
-    background-color: #e5eaf4;
+    background-color: #ffffff;
     color: #2c2c2c;
+    min-height: 50vh;
 }
 
 h1 {
@@ -84,4 +85,60 @@ input[type="submit"], button {
 
 input[type="submit"]:hover, button:hover {
     background-color: #111827;
+}
+.dashboard-wrap {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top:0;
+    background-color: #610220;
+    min-height: 100vh;
+}
+
+.dashboard-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 36px;
+    border-radius: 10px;
+    border-top: 4px solid #faac37;
+    box-shadow: 0 6px 20px rgba(31, 41, 55, 0.12);
+    text-align: center;
+}
+
+.dashboard-card h1 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.dashboard-sub {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.dashboard-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dashboard-actions button {
+    width: 100%;
+    padding: 13px;
+    font-size: 15px;
+    margin-top: 0;
+}
+
+.btn-outline {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+    border: 1.5px solid #1f2937 !important;
+}
+
+.btn-outline:hover {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
 }

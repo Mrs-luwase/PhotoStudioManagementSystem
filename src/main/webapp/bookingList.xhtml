@@ -8,7 +8,11 @@
 <f:view>
     <h1>Booking List</h1>
 
+
     <h:form>
+        <h:commandButton value="Back To Dashboard" action="dashboard?faces-redirect=true"
+        style="margin-bottom:10px;margin-right:10px; background-color:#faac37;"/>
+
         <h:commandButton value="+ New Booking" action="#{bookingBean.prepareNew}"/>
 
         <h:dataTable value="#{bookingBean.bookingList}" var="b" border="2" styleClass="data-table">
